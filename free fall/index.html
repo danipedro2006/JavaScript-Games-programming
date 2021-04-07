@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      #my-canvas {
+        display: block;
+        margin: 10px auto;
+        border: 1px solid #999;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="my-canvas" width="300" height="400"></canvas>
+
+    <script>
+
+      var canvas=document.getElementById('my-canvas');
+      ctx=canvas.getContext('2d');
+      ctx.fillStyle='red';
+      height=400;
+      width=300;
+      x=200;
+      y=0;
+      vy=0;
+      ay=0;
+      m=0.1;
+      r=10;
+      dt=0.02;
+      e=-0.5;
+      rho=1.2;
+      c_d=0.47;
+
+      A=Math.PI*r*r/10000;
+
+
+
+      function loop() {
+        var fy=0;
+        fy+=m*9.81;
+        fy+=-1*0.5*rho*c_d*A*vy*vy;
+        dy=vy*dt+(0.5*ay*dt*dt);
+        y+=dy*100;
+        new_ay=fy/m;
+        avg_ay=0.5*(new_ay+ay);
+        vy+=avg_ay*dt;
+        if(y+r>height && vy>0){
+          vy*=e;
+          y=height-r;
+        }
+        draw();
+      }
+
+      function draw(){
+
+        ctx.clearRect(0, 0, width, height);
+        ctx.beginPath();
+        ctx.arc(x, y, r, 0, Math.PI*2,true);
+        ctx.fill();
+        ctx.closePath();
+      }
+      setInterval(loop, dt*1000);
+    </script>
+  </body>
+</html>
