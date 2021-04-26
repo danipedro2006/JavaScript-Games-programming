@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Sprite animation</title>
+  </head>
+  <body   style='position: absolute; padding:0; margin:0; height: 100%; width:100%'>
+    <canvas id="canvas" ></canvas>
+    <script type = "text/javascript" >
+    var canvas = null;
+    var imageReady = false;
+    var img = null;
+    var ctx = null;
+    canvas = document.getElementById("canvas");
+    ctx = canvas.getContext('2d');
+    img = new Image();
+    img.src = 'http://buildnewgames.com/assets/article/sprite-animation/simba.png';
+    img.onload = loaded();
+    resize();
+
+    // canvas.width=canvas.parentNode.clientWidth;
+    // canvas.height=canvas.parentNode.clientHeight;
+
+    // ctx.fillStyle="#000000";
+    // ctx.fillRect(0,0,canvas.width, canvas.height);
+    // ctx.fillStyle="#333333";
+    // ctx.fillRect(canvas.width/3, canvas.height/3, canvas.width/3, canvas.height/3,);
+
+    function loaded() {
+        imageReady = true;
+        setTimeout(update, 1000 / 30);
+    }
+
+    function redraw() {
+        ctx.fillStyle = '#000000';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        if (imageReady)
+        ctx.save(); // ctx save and ctx restore at the end
+        ctx.rotate(270 * Math.PI / 180); //roteste imaginea cu 180 grade
+        ctx.drawImage(img, frame * 96, 0, 96, 54, canvas.width / 2 - 48, canvas.height / 2 - 48, 96, 54);
+        //ctx.drawImage(img, frame*96,0,96,54,-96,48,96,54);//afiseaza imaginea rotita cu 180 grade
+    }
+
+    var frame = 0;
+
+    function resize() {
+        canvas.width = canvas.parentNode.clientWidth;
+        canvas.height = canvas.parentNode.clientHeight;
+        redraw();
+    }
+
+    function update() {
+        redraw();
+        frame++;
+        if (frame >= 6) frame = 0;
+        setTimeout(update, 1000 / 30);
+    } </script>
+  </body>
+</html>
