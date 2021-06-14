@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Bouncing Ball</title>
+    <style media="screen">
+      body {
+        margin:0;
+        background-color:black;
+      }
+      #my-canvas {
+        width:100%;
+        height:100%;
+      }
+    </style>
+  </head>
+  <body onload="init()">
+    <canvas id="my-canvas" width="300" height="300"></canvas>
+
+
+    <script type="text/javascript">
+
+      var canvas=document.getElementById("my-canvas");
+      var context=canvas.getContext("2d");
+      var fps=60;
+      var updateTime=1000/fps;
+      var _PI=Math.PI;
+      var _cos=Math.cos;
+      var _sin=Math.sin;
+      var _random=Math.random;
+      var oneDegreeOnRadian=_PI/180;
+      // Ball
+
+      var ball;
+
+      function Ball(radius, speed){
+
+        this.radius=(radius)?(radius):(5);//default size=20
+        this.speed=(speed)?(speed):(10);//defaul speeed=10
+
+        this.x=(_random()*(canvas.width-2*(this.radius)))+this.radius;
+        this.y=(_random()*(canvas.height-2*(this.radius)))+this.radius;
+
+        var angleradian=_random()*360*oneDegreeOnRadian;
+
+        this.xSpeed=_cos(angleradian)*this.speed;
+        this.ySpeed=_sin(angleradian)*this.speed;
+
+        this.xDirection=(_random<0.5) ? (1):(-1);
+        this.yDirection=(_random<0.5) ? (1):(-1);
+
+        //move ball
+        this.move=function(){
+        var nextX=this.x+(this.xDirection*this.xSpeed);
+        var nextY=this.y+(this.yDirection*this.ySpeed);
+
+        if(((nextX-this.radius)<0) || ((nextX+this.radius)>canvas.width-1)){
+          this.xDirection*=-1;//change x drection
+        }
+
+        if(((nextY-this.radius)<0) || ((nextY+this.radius)>canvas.height-1)){
+          this.yDirection*=-1;//change y direction
+        }
+
+        this.x+=this.xDirection*this.xSpeed;
+        this.y+=this.yDirection*this.ySpeed;
+        }
+
+        //draw ball
+        this.draw=function(){
+          context.fillStyle="tomato";
+          context.beginPath();
+          context.arc(this.x,this.y,this.radius,0,_PI*2, false);
+          context.closePath();
+          context.fill();
+        }
+      }
+
+      function clear(){
+        context.clearRect(0,0, canvas.width, canvas.height);//clear canvas
+      }
+
+      function update(){
+        ball.move();
+      }
+
+      function draw(){
+        ball.draw();
+      }
+
+      function animate(){
+        clear();
+        update();
+        draw();
+      }
+
+      function resizeCanvas(){
+        canvas.width=window.innerWidth;
+        canvas.height=window.innerHeight;
+      }
+      function init(){
+        window.addEventListener('resize', resizeCanvas, false);
+        resizeCanvas();
+        ball=new Ball(20, 10);
+        setInterval(function(){
+          animate();
+        }, updateTime);
+      }
+
+    </script>
+  </body>
+</html>
