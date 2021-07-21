@@ -16,11 +16,11 @@ In this repository game physics will be explored, starting with simple motion in
 
 -Acceleration  
 <img src=https://github.com/danipedro2006/JavaScript-Games-programming/blob/default/acceleration/cwHLrlmTMX.gif width="300" height="200">  
--Free Fall
--Collision
--Rigid Body
--Bouncing ball
--Rigid Collision
+-Free Fall   
+-Elastic Ball  
+-Rigid Body  
+-Bouncing Ball  
+-Rigid Collision  
 
 ## Technologies
 * JavaScript
