@@ -21,7 +21,7 @@ In this repository game physics will be explored, starting with simple motion in
 -Elastic Ball   
 <img src=https://github.com/danipedro2006/JavaScript-Games-programming/blob/default/elastic%20ball/njVDF8tM0j.gif width="390"  height="370">   
 -Rigid Body Collision  
-<img src=https://github.com/danipedro2006/JavaScript-Games-programming/blob/default/rigid-body-collisions/N2ZnbsyNBL.gif width="390"  height="370">   
+<img src=https://github.com/danipedro2006/JavaScript-Games-programming/blob/default/rigid-body-collisions/N2ZnbsyNBL.gif width="455"  height="336">   
 
 ## Technologies
 * JavaScript
