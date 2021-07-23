@@ -18,11 +18,10 @@ In this repository game physics will be explored, starting with simple motion in
 <img src=https://github.com/danipedro2006/JavaScript-Games-programming/blob/default/acceleration/cwHLrlmTMX.gif width="300" height="200">  
 -Free Fall   
 <img src=https://github.com/danipedro2006/JavaScript-Games-programming/blob/default/free%20fall/C4FI6JsD9y.gif width="300" height="300">  
--Elastic Ball  
-<img src=https://github.com/danipedro2006/JavaScript-Games-programming/blob/default/elastic%20ball/njVDF8tM0j.gif width="390" height="370"> 
--Rigid Body  
--Bouncing Ball  
--Rigid Collision  
+-Elastic Ball   
+<img src=https://github.com/danipedro2006/JavaScript-Games-programming/blob/default/elastic%20ball/njVDF8tM0j.gif width="390"  height="370">   
+-Rigid Body Collision  
+<img src=https://github.com/danipedro2006/JavaScript-Games-programming/blob/default/rigid-body-collisions/N2ZnbsyNBL.gif width="390"  height="370">   
 
 ## Technologies
 * JavaScript
