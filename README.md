@@ -12,7 +12,7 @@ Physics simulation is a field within computer science that aims to reproduce phy
 In video game physics, we want to animate objects on screen and give them realistic physical behavior. This is achieved with physics-based procedural animation, which is animation produced by numerical computations applied to the theoretical laws of physics.
 
 Animations are produced by displaying a sequence of images in succession, with objects moving slightly from one image to the next. When the images are displayed in quick succession, the effect is an apparent smooth and continuous movement of the objects. Thus, to animate the objects in a physics simulation, we need to update the physical state of the objects (e.g. position and orientation), according to the laws of physics multiple times per second, and redraw the screen after each update.  
-In this repository game physics will be explored, starting with simple motion in this article, and then covering interactions among bodies through collisions and constraints in the following installments:
+In this repository game physics will be explored, starting with simple motion and then covering interactions among bodies through collisions and constraints in the following installments:
 
 -Acceleration  
 <img src=https://github.com/danipedro2006/JavaScript-Games-programming/blob/default/acceleration/cwHLrlmTMX.gif width="300" height="200">  
